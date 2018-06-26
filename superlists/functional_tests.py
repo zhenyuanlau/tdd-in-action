@@ -3,8 +3,10 @@ from selenium.webdriver.chrome.options import Options
 
 chrome_options = Options()
 chrome_options.add_argument('--headless')
-browser = webdriver.Chrome(chrome_options= chrome_options)
+chrome = webdriver.Chrome(chrome_options = chrome_options)
 
-browser.get('http://localhost:8000')
+# 打开在线待办事项应用首页
+chrome.get('http://localhost:8000')
 
-assert 'Django' in browser.title
+# 看到网页标题包含 “To-Do” 
+assert 'Django' in chrome.title

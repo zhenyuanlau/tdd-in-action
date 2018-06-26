@@ -1,2 +1,1 @@
-# tdd-with-python
-Test-Driven Development with Python
+# Test-Driven Development In Action
