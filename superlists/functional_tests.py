@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.common.keys import Keys
 import unittest
 
 class VisitorTest(unittest.TestCase):
@@ -37,7 +38,7 @@ class VisitorTest(unittest.TestCase):
         table = self.browser.find_element_by_id('id-list-table')
         rows = self.browser.find_elements_by_tag_name('tr')
         self.assertTrue(
-            any(row.text == '1. Learning' for row in rows)
+            any(row.text == '1. Learning' for row in rows), 'New to-do item not appear in table'
         )
 
         # 退出
