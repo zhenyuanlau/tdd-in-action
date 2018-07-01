@@ -58,12 +58,13 @@ class VisitorTest(LiveServerTestCase):
         self.wait_for_row_in_list_table('1. Playing')
 
         edith_list_url = self.browser.current_url
-        self.assertRegex(edith_list_url, '/list/.+')
+        self.assertRegex(edith_list_url, '/lists/\d+/')
 
         self.browser.quit()
 
         # A new user
         self.browser = self.open_chrome()
+        self.browser.get(self.live_server_url)
         page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotIn('Playing', page_text)
 
@@ -72,7 +73,7 @@ class VisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
         self.wait_for_row_in_list_table('1. Sleeping')
         guest_list_url = self.browser.current_url
-        self.assertRegex(guest_list_url, '/lists/.+')
+        self.assertRegex(guest_list_url, '/lists/\d+/')
         self.assertNotEqual(guest_list_url, edith_list_url)
 
         page_text = self.browser.find_element_by_tag_name('body').text
