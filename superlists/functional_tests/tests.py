@@ -20,7 +20,7 @@ class VisitorTest(LiveServerTestCase):
 
     def test_can_start_a_list_and_retrieve_it_later(self):
         # 打开在线待办事项应用首页
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # 看到网页标题包含 “To-Do”
         self.assertIn('To-Do', self.browser.title)
@@ -46,6 +46,3 @@ class VisitorTest(LiveServerTestCase):
 
         # 退出
         self.fail('Finished the test!')
-
-if __name__ == '__main__':
-    unittest.main(warnings = 'ignore')
