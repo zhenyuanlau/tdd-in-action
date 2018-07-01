@@ -1,9 +1,10 @@
+from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
-import unittest
+import time
 
-class VisitorTest(unittest.TestCase):
+class VisitorTest(LiveServerTestCase):
     def setUp(self):
         options = Options()
         options.add_argument('--headless')
